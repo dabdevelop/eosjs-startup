@@ -1,8 +1,8 @@
-## Fibos Startup
+## eosjs Startup
 
 ### 简介
 
-[EOS Startup](https://github.com/dabdevelop/eosjs-startup) 整理了eosjs常用代码，包括创建、查询EOS账号，EOS转账，购买RAM，出售RAM，抵押资源，取消抵押资源，生成密钥对等。
+[eosjs Startup](https://github.com/dabdevelop/eosjs-startup) 整理了eosjs常用代码，包括创建、查询EOS账号，EOS转账，购买RAM，出售RAM，抵押资源，取消抵押资源，生成密钥对等。
 
 ### 前提
 
