@@ -1,0 +1,12 @@
+{
+  "name": "eosjs-startup",
+  "version": "0.0.1",
+  "description": "",
+  "repository": "",
+  "keywords": "",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eosjs": "^16.0.6"
+  }
+}
