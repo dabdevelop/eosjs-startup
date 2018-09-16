@@ -27,9 +27,7 @@ const updateAuthResult = await client.transaction(tr => {
     }, {
       authorization: `${user.account}@owner`
     });
-
   }
 });
-
 
 console.log('Success =>', JSON.stringify(updateAuthResult));
