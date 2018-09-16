@@ -1,7 +1,8 @@
 // 更改账号权限
+// 在 keys.json 文件里放入你的私钥
 
-var FIBOS = require('./initClient.js');
-var client = FIBOS();
+var EOS = require('./eosClient.js');
+var eos = EOS();
 
 // 替换 xxxxxaccount yyyyyaccount 为你的账号
 const user = {
@@ -9,7 +10,7 @@ const user = {
 };
 
 async function getNewPermissions(accountName) {
-  const account = await client.getAccount(accountName);
+  const account = await eos.getAccount(accountName);
   const perms = JSON.parse(JSON.stringify(account.permissions));
   return perms;
 }
@@ -17,7 +18,7 @@ async function getNewPermissions(accountName) {
 // 复制 源 账号的所有权限
 const perms = await getNewPermissions('yyyyyaccount');
 
-const updateAuthResult = await client.transaction(tr => {
+const updateAuthResult = await eos.transaction(tr => {
   for (const perm of perms) {
     tr.updateauth({
       account: user.account,
