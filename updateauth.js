@@ -15,20 +15,25 @@ async function getNewPermissions(accountName) {
   return perms;
 }
 
-// 复制 源 账号的所有权限
-const perms = await getNewPermissions('yyyyyaccount');
+async function updateauth() {
+  // 复制 源 账号的所有权限
+  const perms = await getNewPermissions('yyyyyaccount');
 
-const updateAuthResult = await eos.transaction(tr => {
-  for (const perm of perms) {
-    tr.updateauth({
-      account: user.account,
-      permission: perm.perm_name,
-      parent: perm.parent,
-      auth: perm.required_auth
-    }, {
-      authorization: `${user.account}@owner`
-    });
-  }
-});
+  const updateAuthResult = await eos.transaction(tr => {
+    for (const perm of perms) {
+      tr.updateauth({
+        account: user.account,
+        permission: perm.perm_name,
+        parent: perm.parent,
+        auth: perm.required_auth
+      }, {
+        authorization: `${user.account}@owner`
+      });
+    }
+  });
 
-console.log('Success =>', JSON.stringify(updateAuthResult));
+  console.log('Success =>', JSON.stringify(updateAuthResult));
+}
+
+updateauth();
+
